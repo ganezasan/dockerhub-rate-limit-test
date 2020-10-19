@@ -14,6 +14,14 @@ jobs:
           password: $DOCKERHUB_PASSWORD
     steps:
       - run: echo "no warning message"
+  docker-executor-with-wrong-auth:
+    docker:
+      - image: circleci/node:latest
+        auth:
+          username: $DOCKERHUB_USER
+          password: "hello"
+    steps:
+      - run: echo "failed to spin up"
 workflows:
   version: 2
   workflow:
