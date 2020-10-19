@@ -1,0 +1,21 @@
+version: 2.1
+  
+jobs:
+  non-auth:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      run: echo "show a warning message in the spinup step"
+  auth:
+    docker:
+      - image: circleci/node:latest
+      auth:
+        username: $DOCKERHUB_USER
+        password: $DOCKERHUB_PASSWORD
+    steps:
+      run: echo "no warning message"
+workflows:
+  workflow:
+    jobs:
+      - non-auth
+      - auth
