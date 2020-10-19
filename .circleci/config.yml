@@ -1,12 +1,12 @@
 version: 2.1
   
 jobs:
-  non-auth:
+  docker-executor-with-non-auth:
     docker:
       - image: circleci/node:latest
     steps:
       run: echo "show a warning message in the spinup step"
-  auth:
+  docker-executor-with-auth:
     docker:
       - image: circleci/node:latest
         auth:
@@ -15,7 +15,8 @@ jobs:
     steps:
       run: echo "no warning message"
 workflows:
+  version: 2
   workflow:
     jobs:
-      - non-auth
-      - auth
+      - docker-executor-with-non-auth
+      - docker-executor-with-auth
