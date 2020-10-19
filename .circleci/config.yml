@@ -14,7 +14,7 @@ jobs:
           password: $DOCKERHUB_PASSWORD
     steps:
       - run: echo "no warning message"
-  docker-executor-with-wrong-auth:
+  docker-executor-with-wrong-password:
     docker:
       - image: circleci/node:latest
         auth:
@@ -28,3 +28,4 @@ workflows:
     jobs:
       - docker-executor-with-non-auth
       - docker-executor-with-auth
+      - docker-executor-with-wrong-password
