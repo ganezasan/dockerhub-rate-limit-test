@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: circleci/node:latest
     steps:
-      run: echo "show a warning message in the spinup step"
+      - run: echo "show a warning message in the spinup step"
   docker-executor-with-auth:
     docker:
       - image: circleci/node:latest
@@ -13,7 +13,7 @@ jobs:
           username: $DOCKERHUB_USER
           password: $DOCKERHUB_PASSWORD
     steps:
-      run: echo "no warning message"
+      - run: echo "no warning message"
 workflows:
   version: 2
   workflow:
