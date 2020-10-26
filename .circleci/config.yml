@@ -27,6 +27,11 @@ jobs:
       - image: takamaru/private-image-test:latest
     steps:
       - run: echo "failed to spin up"
+  machine-executor-pull-private-image:
+    machine: true
+    steps:
+      - run: docker pull takamaru/private-image-test:latest
+
 workflows:
   version: 2
   workflow:
@@ -35,3 +40,4 @@ workflows:
       - docker-executor-with-auth
       - docker-executor-with-wrong-password
       - docker-executor-private-image
+      - machine-executor-pull-private-image
