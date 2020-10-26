@@ -1,5 +1,5 @@
 version: 2
-  
+
 jobs:
   docker-executor-with-non-auth:
     docker:
@@ -31,6 +31,7 @@ jobs:
     machine: true
     steps:
       - run: docker pull takamaru/private-image-test:latest
+      - run: echo "test for server"
 
 workflows:
   version: 2
