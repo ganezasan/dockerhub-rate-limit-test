@@ -1,4 +1,4 @@
-version: 2.1
+version: 2
   
 jobs:
   docker-executor-with-non-auth:
@@ -22,6 +22,11 @@ jobs:
           password: "hello"
     steps:
       - run: echo "failed to spin up"
+  docker-executor-private-image:
+    docker:
+      - image: takamaru/private-image-test:latest
+    steps:
+      - run: echo "failed to spin up"
 workflows:
   version: 2
   workflow:
@@ -29,3 +34,4 @@ workflows:
       - docker-executor-with-non-auth
       - docker-executor-with-auth
       - docker-executor-with-wrong-password
+      - docker-executor-private-image
